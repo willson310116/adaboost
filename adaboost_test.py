@@ -21,8 +21,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Adaboost classification with 5 weak classifiers
 
 acc_list = []
+dim = int(input("# of features\n> "))
 # for _ in range(1,data.feature_names.shape[0]):
-for _ in range(1,6):
+for _ in range(1,dim):
 	old = time.time()
 	clf = Adaboost(n_clf=_)
 	clf.fit(X_train, y_train)
@@ -36,7 +37,7 @@ for _ in range(1,6):
 plt.style.use("fivethirtyeight")
 plt.title("Adaboost Test")
 # plt.plot(list(range(1,data.feature_names.shape[0])),acc_list)
-plt.plot(list(range(1,6)),acc_list)
+plt.plot(list(range(1,dim)),acc_list)
 plt.xlabel("n_clf")
 plt.ylabel("Accuracy")
 # plt.legend()
